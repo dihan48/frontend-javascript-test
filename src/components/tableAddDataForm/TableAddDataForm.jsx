@@ -12,7 +12,11 @@ export function ShowFormButton() {
                 className={styles.showFormButton}
                 onClick={() => setIsShowForm(!isShowForm)}
             >
-                Добавить
+                {
+                    isShowForm
+                    ? 'Закрыть'
+                    : 'Добавить'
+                }
             </button>
             {
                 isShowForm
