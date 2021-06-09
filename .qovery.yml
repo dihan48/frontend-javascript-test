@@ -1,0 +1,11 @@
+---
+application:
+  name: "frontend-javascript-test"
+  project: "frontend-javascript-test"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-frontend-javascript-test"
+  routes:
+  - application_name: "frontend-javascript-test"
+    paths:
+    - "/*"
