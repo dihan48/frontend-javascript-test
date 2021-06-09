@@ -1,0 +1,21 @@
+.sort,
+.sortDown,
+.columnHead{
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 0 15px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.sort::after, 
+.sortDown::after{
+    content: '\a0↑\a0';
+    position: absolute;
+    transition-duration: 0.3s;
+}
+
+.sortDown::after{
+    transform: rotate(180deg);
+}

@@ -1,0 +1,25 @@
+.tableAddDataForm{
+    position: relative;
+}
+
+.showFormButton{
+
+}
+
+.form{
+    position: absolute;
+    padding: 20px;
+    background-color: gray;
+    right: 0;
+    z-index: 1;
+}
+
+.valid{
+    box-sizing: border-box;
+    border: 2px solid green;
+}
+
+.invalid{
+    box-sizing: border-box;
+    border: 2px solid red;
+}

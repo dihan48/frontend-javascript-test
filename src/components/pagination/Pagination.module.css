@@ -1,0 +1,14 @@
+.pagination{
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.pageNumber{
+    cursor: pointer;
+}
+
+.pageNumberActive{
+    cursor: default;
+    opacity: 0.5;
+}
