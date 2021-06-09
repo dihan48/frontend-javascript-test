@@ -30,7 +30,7 @@ export default function Table() {
                     <TableFilter />
                     <ShowFormButton />
                 </div>
-                <table border="1" className={styles.table}>
+                <table className={styles.table}>
                     <TableHeader />
                     <TableBody />
                 </table>

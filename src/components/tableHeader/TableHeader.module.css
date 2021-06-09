@@ -1,14 +1,17 @@
-.sort,
-.sortDown,
-.columnHead{
+
+.th{
+    background-color: rgb(233 248 253);
+    padding: 6px 13px;
+    border-collapse: collapse;
+    border: 1px solid #e0e3e6;
     box-sizing: border-box;
     cursor: pointer;
-    padding: 0 15px;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
 }
+
 .sort::after, 
 .sortDown::after{
     content: '\a0↑\a0';

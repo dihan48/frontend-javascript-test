@@ -16,10 +16,17 @@ export default function TableBody() {
         <tbody>
             {
                 data.map(item =>
-                    <tr key={item.sourceID} className={selectedRow === item.sourceID ? styles.selectRow : ''}>
+                    <tr
+                        key={item.sourceID}
+                        className={selectedRow === item.sourceID ? `${styles.selected} ${styles.tr}` : styles.tr}
+                    >
                         {
                             columns.map(({ key }) =>
-                                <td key={key} onClick={() => dispatch(setSelectedSourceID(item.sourceID))}>
+                                <td
+                                    key={key}
+                                    onClick={() => dispatch(setSelectedSourceID(item.sourceID))}
+                                    className={styles.td}
+                                >
                                     {item[key]}
                                 </td>
                             )

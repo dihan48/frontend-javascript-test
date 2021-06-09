@@ -3,6 +3,7 @@ import {
     selectSourceData,
     selectSelectedSourceID
 } from '../../slices/tableSlice';
+import styles from './TableRowInfo.module.css';
 
 export default function TableRowInfo() {
     const sourceData = useSelector(selectSourceData);
@@ -15,24 +16,42 @@ export default function TableRowInfo() {
 
 function RowInfo({ data }) {
     return (
-        <div>
-            <div>
-                Выбран пользователь <b>{`${data?.firstName || ''} ${data?.lastName || ''}`}</b>
+        <div className={styles.info}>
+            <div className={styles.title}>
+                Выбран пользователь
             </div>
-            <div>
-                Описание: <textarea defaultValue={data?.description || ''} />
+            <div className={styles.value}>
+                <b>{`${data?.firstName || ''} ${data?.lastName || ''}`}</b>
             </div>
-            <div>
-                Адрес проживания: <b>{data?.address?.streetAddress || ''}</b>
+            <div className={styles.title}>
+                Описание:
             </div>
-            <div>
-                Город: <b>{data?.address?.city || ''}</b>
+            <div className={styles.value}>
+                <textarea defaultValue={data?.description || ''} />
             </div>
-            <div>
-                Провинция/штат: <b>{data?.address?.state || ''}</b>
+            <div className={styles.title}>
+                Адрес проживания:
             </div>
-            <div>
-                Индекс: <b>{data?.address?.zip || ''}</b>
+            <div className={styles.value}>
+                <b>{data?.address?.streetAddress || ''}</b>
+            </div>
+            <div className={styles.title}>
+                Город:
+            </div>
+            <div className={styles.value}>
+                <b>{data?.address?.city || ''}</b>
+            </div>
+            <div className={styles.title}>
+                Провинция/штат:
+            </div>
+            <div className={styles.value}>
+                <b>{data?.address?.state || ''}</b>
+            </div>
+            <div className={styles.title}>
+                Индекс:
+            </div>
+            <div className={styles.value}>
+                <b>{data?.address?.zip || ''}</b>
             </div>
         </div>
     );

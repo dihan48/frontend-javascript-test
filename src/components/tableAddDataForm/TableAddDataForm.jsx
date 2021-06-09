@@ -7,7 +7,7 @@ import { formModel } from './FormModel';
 export function ShowFormButton() {
     const [isShowForm, setIsShowForm] = useState(false);
     return (
-        <div className={styles.tableAddDataForm}>
+        <>
             <button
                 className={styles.showFormButton}
                 onClick={() => setIsShowForm(!isShowForm)}
@@ -19,7 +19,7 @@ export function ShowFormButton() {
                 &&
                 <Form setIsShowForm={setIsShowForm} />
             }
-        </div>
+        </>
     );
 }
 function Form({ setIsShowForm }) {
@@ -36,7 +36,7 @@ function Form({ setIsShowForm }) {
             }
             dispatch(addRow(newRow));
         }}>
-            <table border="1">
+            <table className={styles.table}>
                 <thead>
                     <tr>
                         {
@@ -52,19 +52,19 @@ function Form({ setIsShowForm }) {
                     <tr>
                         {
                             formModel.map(({ key, placeholder, dataType }) =>
-                                <td key={key}>
+                                <td key={key} className={styles.td}>
                                     <input
                                         type="text"
                                         placeholder={placeholder}
                                         onChange={(event) => handleFormChange(event, key, dataType, formData, setFormData, setIsActiveButton)}
                                         value={formData[key]?.value || ''}
                                         className={(() => {
-                                            if(formData[key]?.valid === null)
-                                                return ''
-                                            if(formData[key]?.valid)
-                                                return `${styles.valid}`
+                                            if (formData[key]?.valid === null)
+                                                return `${styles.input}`
+                                            if (formData[key]?.valid)
+                                                return `${styles.input} ${styles.valid}`
                                             else
-                                                return `${styles.invalid}`
+                                                return `${styles.input} ${styles.invalid}`
                                         })()}
                                     />
                                 </td>
@@ -73,7 +73,12 @@ function Form({ setIsShowForm }) {
                     </tr>
                 </tbody>
             </table>
-            <input type="submit" value="Добавить в таблицу" disabled={!isActiveButton} />
+            <input
+                type="submit"
+                value="Добавить в таблицу"
+                disabled={!isActiveButton}
+                className={styles.submit}
+            />
         </form>
     );
 }

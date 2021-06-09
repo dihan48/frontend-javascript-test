@@ -1,25 +1,39 @@
-.tableAddDataForm{
-    position: relative;
-}
-
-.showFormButton{
-
-}
-
 .form{
     position: absolute;
+    box-sizing: border-box;
     padding: 20px;
-    background-color: gray;
+    width: 100%;
+    background-color: rgb(166 215 210);;
     right: 0;
+    top: 100%;
     z-index: 1;
+    border: 1px solid #e0e3e6;
 }
 
-.valid{
+.table{
+    width: 100%;
+}
+
+.td{
+    padding: 6px 13px;
+}
+
+.input{
+    width: 100%;
+    max-width: 250px;
+    box-sizing: border-box;
+}
+
+.input.valid{
     box-sizing: border-box;
     border: 2px solid green;
 }
 
-.invalid{
+.input.invalid{
     box-sizing: border-box;
     border: 2px solid red;
+}
+
+.submit{
+    margin: 0 13px;
 }

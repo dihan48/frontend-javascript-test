@@ -1,0 +1,18 @@
+.info{
+    width: fit-content;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    padding: 30px 0;
+}
+
+.title{
+    align-self: center;
+    justify-self: start;
+}
+
+.value{
+    align-self: center;
+    justify-self: end;
+}

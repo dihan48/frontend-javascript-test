@@ -2,7 +2,9 @@
     display: flex;
     justify-content: space-between;
     padding: 20px 0;
+    position: relative;
 }
 .table{
     width: 100%;
+    border-collapse: collapse;
 }

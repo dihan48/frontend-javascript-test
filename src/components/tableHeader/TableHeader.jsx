@@ -13,7 +13,7 @@ export default function TableHeader() {
     const sortDirection = useSelector(selectSortDirection);
     return (
         <thead>
-            <tr>
+            <tr className={styles.tr}>
                 {
                     columns.map(({ key, name }) =>
                         <th
@@ -22,9 +22,9 @@ export default function TableHeader() {
                             className={
                                 sortColumn === key
                                     ? sortDirection === 1
-                                        ? `${styles.sort}`
-                                        : `${styles.sortDown}`
-                                    : `${styles.columnHead}`
+                                        ? `${styles.th} ${styles.sort}`
+                                        : `${styles.th} ${styles.sortDown}`
+                                    : `${styles.th}`
                             }
                         >
                             {name}

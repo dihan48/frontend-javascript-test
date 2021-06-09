@@ -18,7 +18,10 @@ export default function TablePagination() {
     const pagesCount = Math.ceil(data.length / rowInPage);
 
     const handleClick = (numberPage) => {
-        window.scrollTo(0, 0);
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
         dispatch(setPage(numberPage));
     }
 
