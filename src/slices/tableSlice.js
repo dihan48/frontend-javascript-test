@@ -20,7 +20,7 @@ export const fetchDataAsync = createAsyncThunk(
   async (args, thunkAPI) => {
     const response = await fetchData(thunkAPI.getState().table.apilvl);
     const state = thunkAPI.getState().table;
-    const sourceData = response.data.map((item, index) => ({ sourceID: index, ...item }));
+    const sourceData = response.data.map((item, index) => objectWithSourceID(item, index));
     const viewData = [...sourceData];
     const data = await sortPromise(viewData, state.sortColumn, state.sortDirection);
     return { sourceData, data, error: !!response?.error };
@@ -79,6 +79,13 @@ function sortFunction(key, dir) {
   }
 }
 
+function objectWithSourceID(item, value) {
+  return Object.defineProperty(item, 'sourceID', {
+    value,
+    enumerable: false
+  });
+}
+
 export const tableSlice = createSlice({
   name: 'table',
   initialState,
@@ -93,7 +100,7 @@ export const tableSlice = createSlice({
       state.selectedSourceID = action.payload;
     },
     addRow: (state, action) => {
-      const row = { sourceID: state.sourceData.length, ...action.payload };
+      const row = objectWithSourceID(action.payload, state.sourceData.length);
       state.sourceData.push(row);
       state.data.unshift(row);
       state.page = 0;
